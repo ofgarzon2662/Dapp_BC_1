@@ -1,0 +1,19 @@
+function sendMoney(uint _id, uint _money) public {
+
+        //Requires that user is sending less than the total money that posses
+        require(_money<=users[msg.sender].dinero);
+
+        //Requiere que le esté enviando a un usuario válido y diferente a sí mismo
+        require(_id > 0 && _id <= usersCount);
+
+        // Sube el dinero en la cuenta id especificado y baja en la misma cantidad del que envía
+        boolean a=false;
+        for(int i=0; i<usersCount && !a; i++){
+                if(_id==users_array[i].id){
+			users_array[i].dinero=users_array[i].dinero+_money;
+			a=true;
+		}			
+        
+        users[msg.sender].dinero=users[msg.sender].dinero-_money;
+
+    }

@@ -1,0 +1,14 @@
+rm -rf node_modules
+rm package-lock.json yarn.lock
+npm cache clear --force
+npm install
+
+//Metodo para lanzar Nequi en consola de truffle
+
+Nequi.deployed().then(function(i){app=i;})
+
+
+//Método para obtener cuentas en cnsola de truffle
+
+web3.eth.getAccounts().then(function(i){accounts=i;})
+
